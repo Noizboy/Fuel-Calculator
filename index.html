@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    .o88b. d8888b. d88888b  .d8b.  d888888b d88888b d8888b. 
+    d8P  Y8 88  `8D 88'     d8' `8b `~~88~~' 88'     88  `8D 
+    8P      88oobY' 88ooooo 88ooo88    88    88ooooo 88   88 
+    8b      88`8b   88~~~~~ 88~~~88    88    88~~~~~ 88   88 
+    Y8b  d8 88 `88. 88.     88   88    88    88.     88  .8D 
+     `Y88P' 88   YD Y88888P YP   YP    YP    Y88888P Y8888D' 
+                                                             
+                                                             
+    
+    d8888b. db    db 
+    88  `8D `8b  d8' 
+    88oooY'  `8bd8'  
+    88~~~b.    88    
+    88   8D    88    
+    Y8888P'    YP    
+                     
+                     
+    
+     .d8b.  db      d88888b    d88b  .d8b.  d8b   db d8888b. d8888b.  .d88b.  
+    d8' `8b 88      88'        `8P' d8' `8b 888o  88 88  `8D 88  `8D .8P  Y8. 
+    88ooo88 88      88ooooo     88  88ooo88 88V8o 88 88   88 88oobY' 88    88 
+    88~~~88 88      88~~~~~     88  88~~~88 88 V8o88 88   88 88`8b   88    88 
+    88   88 88booo. 88.     db. 88  88   88 88  V888 88  .8D 88 `88. `8b  d8' 
+    YP   YP Y88888P Y88888P Y8888P  YP   YP VP   V8P Y8888D' 88   YD  `Y88P'  
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Calculator</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e8346d682.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class=" animate__animated animate__fadeIn animate__delay-1s">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!-- https://modelviewer.dev/ -->
+    <model-viewer class="mb-5 dmodel" alt="Car 3D Model" src="scene.gltf" ar ar-modes="webxr scene-viewer quick-look" auto-rotate seamless-poster shadow-intensity="0" camera-controls enable-pan></model-viewer>
+    
+    <div class="container mainclass">
+        <div class="row justify-content-center mt-3 mb-5">
+            
+            <div class="card w-75 text-white bg-secondary cardsize">
+
+                <div class="text-center"><h1 class="titleheader">FUEL CALCULATOR</h1></div>
+                <div class="results text-center"  id="hidediv" style="display: none;">
+                    <div class="d-inline-block">
+                    <p id="dataresults"></p></button>
+                    </div>
+                    <div class="d-inline-block">
+                    <button class="clipboard" onclick="CopyToClipboard('dataresults');return false;"></abbr><i class="fa-solid fa-copy"></i></button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="card-body">
+            <form onsubmit="return false">
+                    <label for="tripdis" id="Empty"></label>
+                    <div class="input-group mb-2">
+                        <input type="number" id="tripdis" class="form-control" placeholder="eg: 40 miles" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Trip Distance (MIL)</span>
+                        </div>
+                      </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" id="gallons" class="form-control" placeholder="eg: 29.3 MPG" step="0.01" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">MPG &nbsp;<a href="" class="rinfo" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-info"></i></a></span>
+                        </div>
+                      </div>
+                      <div class="input-group mb-3">
+                          <input type="number" id="gprice" class="form-control" step="0.01" placeholder="eg: $4.6" required>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Gas Price ($)</span>
+                          </div>
+                        </div>
+
+                    <h5 class="card-title"><i class="fa-solid fa-circle-info"></i>&nbsp;Finding Fuel Consumption</h5>
+                    <p class="card-text">Know that the equation for fuel consumption is "Miles Driven divided by miles per gallon and multiplied by Gas price."</p>
+                </div>
+                <button type="" class="btn btn-primary mb-4 mt-2 mx-4" onclick="getvalues()">Calculate <i class="fa-solid fa-calculator"></i></button>
+            </form>
+            </div>
+
+        </div>
+    </div>
+    <a href="#secondpargh"><img class="mx-auto d-block animate__animated animate__infinite animate__shakeY animate__slower" src="img/arrow.png" width="74" height="74" alt=""></a>
+
+    <div class="container-fluid" id="secondpargh">
+        <div class="row text-center mt-5">
+            <div class="my-5 colortext">
+                <h2 class="headercolor mb-5">Fuel Calculator</h2>
+                <img src="img/calculator.png" width="180" height="180" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">The price of gas may go up or down, but it's always a major expense for most drivers. The average American driver spends about $3,000 per year on gas, according to the American Automobile Association. Some of the practical ways to reduce fuel costs are listed below.</p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h2 class="headercolor my-5">Use public transportation</h2>
+                <img src="img/public-transport.png" width="200" height="200" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">Walking or biking does not consume fuel, and as such does not accumulate fuel cost. In most cases, public transport alternatives to cars such as buses, trains, and trolleys are viable options of reducing fuel costs. Due to the communal nature of ride sharing, the fuel costs of operating public transport are generally less than the fuel costs associated with each individual operating their own vehicle. In some places, public transport is free. Considering the costs associated with owning or renting a car creates even more incentive to use other modes of transportation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5 colortext">
+                <h2 class="headercolor my-5">Carpool</h2>
+                <img src="img/carsharing.png" width="200" height="200" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">Also known as car sharing, carpooling is the arrangement between two or more people to travel to a shared destination in a single vehicle. Although a heavier car consumes slightly more fuel, it is usually much more efficient than two people driving separate cars towards the same destination.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h2 class="headercolor my-5">Use a more fuel efficient vehicle</h2>
+                <img src="img/gasoline-station.png" width="200" height="200" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">Driving a smaller car makes a great difference – the fuel cost is about half for a small sedan than for a very large SUV. Similarly, drive with a less powerful engine than you need. Don't pay for an eight-cylinder engine when four cylinders work just fine. Unless you're hauling heavy loads on a routine basis, the extra cost of a bigger engine results in more money spent on gasoline.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5 colortext">
+                <h2 class="headercolor my-5">Tune the engine</h2>
+                <img src="img/engine.png" width="200" height="200" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">A properly tuned engine maximizes power and can greatly enhance fuel efficiency. But tuning the car engine is often done to increase horsepower – that's not the way to save on fuel. Make sure the tuner gets the message.
+                            <br><br>
+                            Fixing a car that is noticeably out of tune or has failed an emissions test can improve its gas mileage by an average of 4 percent – this amount will vary depending on the nature of the repair.
+                            <br><br>
+                            Fixing a serious maintenance problem, such as a faulty oxygen sensor, can improve your mileage by as much as 40 percent.
+                            <br><br>
+                            Placing ornaments and ground effects, aerodynamics kits, and airfoils, such as deck-lid spoilers, may make you feel good, but they also increase the car's drag and make it require more fuel. Such accessories offer no real handling enhancements, although they may look nice on your car. Also, place signs or cargo on the roof so that the object angles forward. This will reduce the frontal area of the object, and it will cause less drag, and cause you to use less fuel.</p>                            </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h2 class="headercolor my-5">Adjust tires</h2>
+                <img src="img/tires.png" width="200" height="200" alt="">
+                
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">Make sure the tires are inflated to the right levels. Properly inflated tires can reduce fuel consumption by up to 3 percent. Your tires also lose about 1 PSI per month, and when the tires are cold (e.g., in the winter), their pressure will decrease due to the thermal contraction of the air. It is recommended to check tires at least monthly, preferably weekly. Having properly inflated tires will also help you avoid uneven wear on the tread. <br><br>
+
+                            Gas stations don't always have accurate equipment for this purpose. Sometimes gas stations use automatic air compressors that stop at a pre-determined level. To make sure you inflate to the right level, double-check pressure with your own gauge.<br><br>
+                            
+                            Recommended inflation pressures are for cold tires; put about 3 PSI more in if the tires have been driven on a while. Inflate to the pressure recommended by the car manufacturer, not to the level stamped on the tire.
+                    </div>
+                </div>
+            </div>
+            <div class="my-5 colortext">
+                <h2 class="headercolor my-5">Use the correct motor oil</h2>
+                <img src="img/engine-oil.png" width="200" height="200" alt="">
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">Make sure the tires are inflated to the right levels. Properly inflated tires can reduce fuel consumption by up to 3 percent. Your tires also lose about 1 PSI per month, and when the tires are cold (e.g., in the winter), their pressure will decrease due to the thermal contraction of the air. It is recommended to check tires at least monthly, preferably weekly. Having properly inflated tires will also help you avoid uneven wear on the tread. <br><br>
+
+                            Gas stations don't always have accurate equipment for this purpose. Sometimes gas stations use automatic air compressors that stop at a pre-determined level. To make sure you inflate to the right level, double-check pressure with your own gauge.<br><br>
+                            
+                            Recommended inflation pressures are for cold tires; put about 3 PSI more in if the tires have been driven on a while. Inflate to the pressure recommended by the car manufacturer, not to the level stamped on the tire.
+                    </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h2 class="headercolor my-5">Plan trip carefully</h2>
+                <img src="img/trip.png" width="200" height="200" alt="">
+                
+                <div class="container">
+                    <div class="row">
+                        <p class="desc mt-5">There is no more obvious way to save gas than to drive a shorter distance.<br><br>
+
+                            Plan your route carefully. With today's GPS route planners, it's easy to calculate a straight route with the fewest stops and diversions. It is also possible to judge which route will have the least traffic. Take highways instead of local routes or city streets when possible – the steady speed maximizes fuel efficiency.<br><br>
+                            
+                            When driving in a city, try to park in a central location, and then walk from one appointment to another, or take public transportation. Ragged stop-and-go city driving is terrible for your gas mileage. This also saves the high level of gas used in parking and pulling out in a parking lot.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- MODALS -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">miles-per-gallon</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            MPG is an abbreviation for 'miles-per-gallon' and it is used to give you an indication of the fuel economy of a car or commercial vehicle. It helps you to work out how cheap or expensive a car will be to run.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary closebtn" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+	<script src="core/javascript.js"></script>
+</body>
+<footer>
+    <div class="container-fluid d-flex footer justify-content-center">
+            <p class="copyright">© 2022 <b>Alejandro Gómez</b> - All Right reserved.</p>
+    </div>
+
+
+</footer>
+</html>

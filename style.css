@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700;900&display=swap');
+
+body
+{
+    background-color: #1B1B3A;
+}
+.title
+{
+    color: c1bdfb;
+}
+.cardsize
+{
+    max-width: 30rem;
+    background-color: #121129 !important;
+    color: #c1bdfb !important;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5%;
+}
+.input-group-text
+{
+    color: #c1bdfb !important;
+    background-color: #121129 ;
+    border-color: #2a2753;
+}
+.form-control
+{
+    background-color: #121129;
+    border-color: #2a2753;
+    color: #c1bdfb;
+}
+.card-header 
+{
+    width: auto;
+    background-color: #413b8f;
+}
+.form-control:focus
+{
+    background-color: #262549;
+    color: #c1bdfb;
+}
+.titleheader
+{
+    /* font-family: 'Bitter', serif; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em !important;
+    font-weight: 500;
+    padding-top: 20px;
+}
+.card-title
+{
+    font-size: 1em;
+}
+.card-text
+{
+    font-size: 1em;
+}
+model-viewer
+{
+    margin-top: -1590px;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+model-viewer#reveal 
+{
+    --poster-color: transparent;
+}
+.mainclass
+{
+    margin-top: -90px;
+}
+.btn-primary
+{
+    background-color: #756bff;
+    border-color: #756bff;
+}
+.btn-primary:hover
+{
+    background-color: #413b8f;
+    border-color: #413b8f;
+}
+.btn-primary:focus
+{
+    background-color: #756bff !important;
+    border-color: #756bff !important;
+}
+.btn-primary:active
+{
+    background-color: #413b8f !important;
+}
+.rinfo
+{
+    color: #756bff;
+}
+.rinfo:hover
+{
+    color: #413b8f;
+}
+.copyright
+{
+    color: #c1bdfb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+.desc
+{
+    color: #c1bdfb;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+.headercolor
+{
+    font-family: 'Bebas Neue', cursive;
+    color: #c1bdfb;
+    text-align: center;
+    font-weight: 100;
+    font-size: 4em;
+}
+.footer
+{
+    background-color: #121129;
+    padding-top: 20px;
+}
+.results
+{
+    color: #00bd9b;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    display: none;
+}
+#myBtn 
+{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #00bd9b;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover 
+{
+background-color: #555;
+}
+.clipboard
+{
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    font-size: 32px;
+}
+.clipboard:hover
+{
+    background-color: transparent;
+    color: #00bd9b;
+    border-color: transparent;
+}
+abbr 
+{
+position: relative
+}
+
+abbr:hover::after 
+{
+background: #756bff;
+color: white;
+border-radius: 4px;
+bottom: 100%;
+content: attr(title);
+display: block;
+left: 100%;
+padding: 1em;
+
+position: absolute;    
+width: 280px;
+z-index: 1;
+}
+.help
+{
+    text-decoration: none;
+    color: #756bff;
+}
+.help:hover
+{
+    text-decoration: none;
+    color: #5752a5;
+}
+.modal-content
+{
+    color: white;
+    background-color: #121129 !important;
+}
+.btn-close
+{
+    background-color: #756bff;
+}
+.closebtn
+{
+background-color: #756bff !important;
+}
+.dmodel
+{
+margin-top: -80px !important;
+}
+.colortext
+{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #202042;
+}
