@@ -1,12 +1,12 @@
 function getvalues()
 {
-    var hide = document.getElementById("hidediv");
+    let hide = document.getElementById("hidediv");
 
-    var tripd = document.getElementById("tripdis").value;
-    var ga = document.getElementById("gallons").value;
-    var gprice = document.getElementById("gprice").value;
+    let tripd = document.getElementById("tripdis").value;
+    let ga = document.getElementById("gallons").value;
+    let gprice = document.getElementById("gprice").value;
 
-    var dataresults = parseFloat(tripd / ga * gprice);
+    let dataresults = parseFloat(tripd / ga * gprice);
 
     if(tripd != "" && tripd != "" && gprice != "")
     {
@@ -26,7 +26,7 @@ function getvalues()
 
 function CopyToClipboard(id)
 {
-  var r = document.createRange();
+  let r = document.createRange();
   r.selectNode(document.getElementById(id));
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(r);
@@ -34,7 +34,7 @@ function CopyToClipboard(id)
   window.getSelection().removeAllRanges();
 }
 
-var mybutton = document.getElementById("myBtn");
+let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
