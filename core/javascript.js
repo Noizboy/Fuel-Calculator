@@ -8,7 +8,7 @@ function getvalues()
 
     let dataresults = parseFloat(tripd / ga * gprice);
 
-    if(tripd != "" && tripd != "" && gprice != "")
+    if(tripd != "" && ga != "" && gprice != "")
     {
       if(hide.style.display === "none") 
       {
